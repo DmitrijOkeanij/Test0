@@ -10,29 +10,20 @@ jobs:
     steps:
     
     - uses: actions/checkout@v2
-      
-    - uses: actions/checkout@v2
-      with:
-        repository: DmitrijOkeanij/SunEngineBuild
-        path: "./secondRepo/"
-
+    - name: Make files  
     - run: |
-        cp ./test.txt ./secondRepo/
-        echo "123" > ./secondRepo/file.txt
-        cd ./secondRepo/
+        mkdir updir
+        echo "123" > ./updir/file.txt
+        echo "456" > ./updir/file2.txt
+        cd ./updir/
         ls -la
         echo "HALLOW WORLD!"
         cd ..
    
-    - name: Commit build 
-      uses: EndBug/add-and-commit@v2
-      with:
-         author_name: SunEngine GitHub Action Script
-         author_email: github-action@sunengine.site
-         cwd: "./secondRepo/"
-         message: "Build auto commit"
-         path: "."
-         pattern: "*.*"
-         force: true
+    - name: publish:starters
+      uses: johno/actions-push-subdirectories@master
       env:
-         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          API_TOKEN_GITHUB: ${{ secrets.AutoBuild }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+          args: updir DmitrijOkeanij SunEngineBuild
