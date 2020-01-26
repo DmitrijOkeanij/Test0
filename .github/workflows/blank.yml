@@ -27,6 +27,7 @@ jobs:
         ls -la
         echo "HALLOW WORLD!"
         cd ..
+        ls -la
    
     - name: Commit build
       uses: EndBug/add-and-commit@v2
