@@ -31,6 +31,6 @@ jobs:
         repository: DmitrijOkeanij/SunEngineBuild
         branch: master
         github_token: '${{ secrets.GITHUB_TOKEN  }}'
-        github_pat: '${{ secrets.GITHUB_TOKEN }}'
+        github_pat: '${{ secrets.GH_PAT  }}'
         source_folder: zzz
       if: success() && github.event == 'push'
