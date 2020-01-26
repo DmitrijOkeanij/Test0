@@ -17,8 +17,11 @@ jobs:
         path: "./secondRepo/"
 
     - run: |
-        #cp -rf ./* ./secondRepo
+        cp ./test.txt ./secondRepo/
         echo "123" > ./secondRepo/file.txt
+        cd ./secondRepo/
+        ls -la
+        echo "HALLOW WORLD!"
    
     - name: Commit build 
       uses: EndBug/add-and-commit@v2
@@ -27,7 +30,7 @@ jobs:
          author_email: github-action@sunengine.site
          cwd: "./secondRepo/"
          message: "Build auto commit"
-         path: "./secondRepo/"
+         path: "."
          pattern: "*"
          force: true
       env:
