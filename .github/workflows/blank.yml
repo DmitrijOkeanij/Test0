@@ -20,13 +20,9 @@ jobs:
       
     - name: Make files  
       run: |
-        mkdir updir
-        cd updir
+        cd SunEngineBuild
         echo "1234" > ./file2.txt
         echo "4565" > ./file3.txt
-        ls -la
-        echo "HALLOW WORLD!"
-        cd ..
         ls -la
    
     - name: Commit build
@@ -36,7 +32,7 @@ jobs:
          author_email: github-action@sunengine.site
          cwd: "./SunEngineBuild/"
          message: "Build auto commit"
-         path: "../updir/"
+         path: "."
          pattern: "*.txt"
          force: true
       env:
