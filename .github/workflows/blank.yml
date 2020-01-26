@@ -14,19 +14,16 @@ jobs:
       run: |
         mkdir updir
         cd ./updir
-        mkdir z1
-        cd ./z1
-        echo "123" > ./file.txt
-        echo "456" > ./file2.txt
-        echo "{\"name\":\"SunEngineBuild\"}" > ./package.json
+        echo "1234" > ./file2.txt
+        echo "4565" > ./file3.txt
         ls -la
         echo "HALLOW WORLD!"
-        cd ../..
+        cd ..
    
     - uses: seanmiddleditch/gha-publish-to-git@master
       with:
         branch: master
         github_token: '${{ secrets.GITHUB_TOKEN  }}'
         github_pat: '${{ secrets.GITHUB_TOKEN }}'
-        source_folder: updir/z1
+        source_folder: updir
       if: success() && github.event == 'push'
