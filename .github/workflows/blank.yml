@@ -1,0 +1,29 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    
+    - uses: actions/checkout@v2
+      with:
+        repository: DmitrijOkeanij/SunEngineBuild
+        path: "./pathToRepo/"
+        
+    - name: Commit build 
+      uses: EndBug/add-and-commit@v2
+      with:
+         author_name: SunEngine GitHub Action Script
+         author_email: github-action@sunengine.site
+         cwd: "./pathToRepo/"
+         message: "Build auto commit"
+         path: "."
+         pattern: "*"
+         force: true
+      env:
+         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
