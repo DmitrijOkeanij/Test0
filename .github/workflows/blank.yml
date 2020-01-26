@@ -20,9 +20,15 @@ jobs:
       
     - name: Make files  
       run: |
+        echo "1234" > ./file2.txt
+        echo "4565" > ./file3.txt
+        echo "4565" > ./fww3.txt
+        echo "4565" > ./fiddle3.txt
         cd SunEngineBuild
         echo "1234" > ./file2.txt
         echo "4565" > ./file3.txt
+        echo "4565" > ./fww3.txt
+        echo "4565" > ./fiddle3.txt
         ls -la
    
     - name: Commit build
@@ -33,7 +39,7 @@ jobs:
          cwd: "./SunEngineBuild/"
          message: "Build auto commit"
          path: "."
-         pattern: "*.txt"
+         pattern: "*"
          force: true
       env:
          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
