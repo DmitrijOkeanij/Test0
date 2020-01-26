@@ -23,10 +23,10 @@ jobs:
         echo "HALLOW WORLD!"
         cd ../..
    
-    - name: publish:starters
-      uses: johno/actions-push-subdirectories@master
-      env:
-          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - uses: seanmiddleditch/gha-publish-to-git@master
       with:
-          args: updir DmitrijOkeanij
+        branch: master
+        github_token: '${{ secrets.GITHUB_TOKEN  }}'
+        github_pat: '${{ secrets.GITHUB_TOKEN }}'
+        source_folder: updir/z1
+      if: success() && github.event == 'push'
