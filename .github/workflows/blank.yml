@@ -27,7 +27,7 @@ jobs:
          author_email: github-action@sunengine.site
          cwd: "./secondRepo/"
          message: "Build auto commit"
-         path: "."
+         path: "./secondRepo/"
          pattern: "*"
          force: true
       env:
