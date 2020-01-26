@@ -17,7 +17,7 @@ jobs:
         path: "./secondRepo/"
 
     - run: |
-        cp -RT ./* ./secondRepo
+        cp -rf ./* ./secondRepo
         echo "123" > ./secondRepo/file.txt
    
     - name: Commit build 
