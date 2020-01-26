@@ -27,4 +27,3 @@ jobs:
         github_token: '${{ secrets.GITHUB_TOKEN  }}'
         github_pat: '${{ secrets.API_TOKEN_GITHUB }}'
         source_folder: updir
-      if: success() && github.event == 'push'
