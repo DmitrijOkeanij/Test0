@@ -13,17 +13,20 @@ jobs:
     - name: Make files  
       run: |
         mkdir updir
-        echo "123" > ./updir/file.txt
-        echo "456" > ./updir/file2.txt
-        cd ./updir/
+        cd ./updir
+        mkdir z1
+        cd ./z1
+        echo "123" > ./file.txt
+        echo "456" > ./file2.txt
+        
         ls -la
         echo "HALLOW WORLD!"
-        cd ..
+        cd ../..
    
     - name: publish:starters
       uses: johno/actions-push-subdirectories@master
       env:
-          API_TOKEN_GITHUB: ${{ secrets.GITHUB_TOKEN }}
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
           args: updir DmitrijOkeanij SunEngineBuild
