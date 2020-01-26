@@ -8,13 +8,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
     
+    - uses: actions/checkout@v2
+      
     - uses: actions/checkout@v2
       with:
         repository: DmitrijOkeanij/SunEngineBuild
-        path: "./pathToRepo/"
-        
+        path: "./secondRepo/"
+
+    - run: |
+        cp * -RT ./secondRepo
+        echo "123" > ./secondRepo/file.txt
+   
     - name: Commit build 
       uses: EndBug/add-and-commit@v2
       with:
