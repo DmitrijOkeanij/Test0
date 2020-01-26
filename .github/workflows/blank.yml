@@ -25,12 +25,15 @@ jobs:
         echo "4565" > ./zzz/file3.txt
         echo "4565" > ./zzz/fww3.txt
         echo "4565" > ./zzz/fiddle3.txt
-   
-    - uses: seanmiddleditch/gha-publish-to-git@master
+        
+    - name: Push
+      uses: seanmiddleditch/gha-publish-to-git@master
       with:
         repository: DmitrijOkeanij/SunEngineBuild
         branch: master
+        host: github.com  
         github_token: '${{ secrets.GITHUB_TOKEN  }}'
         github_pat: '${{ secrets.GH_PAT  }}'
-        source_folder: zzz
+        source_folder: ./zzz
+        target_folder: te
       if: success() && github.event == 'push'
