@@ -23,7 +23,7 @@ jobs:
     - name: publish:starters
       uses: johno/actions-push-subdirectories@master
       env:
-          API_TOKEN_GITHUB: ${{ secrets.AutoBuild }}
+          API_TOKEN_GITHUB: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
           args: updir DmitrijOkeanij SunEngineBuild
