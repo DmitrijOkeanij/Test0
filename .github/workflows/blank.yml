@@ -18,7 +18,7 @@ jobs:
         cd ./z1
         echo "123" > ./file.txt
         echo "456" > ./file2.txt
-        
+        echo "{\"name\":\"SunEngineBuild\"}" > ./package.json
         ls -la
         echo "HALLOW WORLD!"
         cd ../..
@@ -29,4 +29,4 @@ jobs:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-          args: updir DmitrijOkeanij SunEngineBuild
+          args: updir DmitrijOkeanij
