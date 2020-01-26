@@ -22,16 +22,17 @@ jobs:
         cd ./secondRepo/
         ls -la
         echo "HALLOW WORLD!"
+        cd ..
    
     - name: Commit build 
       uses: EndBug/add-and-commit@v2
       with:
          author_name: SunEngine GitHub Action Script
          author_email: github-action@sunengine.site
-         cwd: "./secondRepo/"
+         cwd: "secondRepo"
          message: "Build auto commit"
          path: "."
-         pattern: "*"
+         pattern: "*.*"
          force: true
       env:
          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
