@@ -9,7 +9,15 @@ jobs:
 
     steps:
     
-    - uses: actions/checkout@v2
+    - name: Checkout main
+      uses: actions/checkout@v2
+      
+    - name: Checkout to
+      uses: actions/checkout@v2
+      with:
+         repository: DmitrijOkeanij/SunEngineBuild
+         path: SunEngineBuild
+      
     - name: Make files  
       run: |
         mkdir updir
@@ -20,10 +28,15 @@ jobs:
         echo "HALLOW WORLD!"
         cd ..
    
-    - uses: seanmiddleditch/gha-publish-to-git@master
+    - name: Commit build
+      uses: EndBug/add-and-commit@v2
       with:
-        repository: DmitrijOkeanij/SunEngineBuild
-        branch: master
-        github_token: '${{ secrets.GITHUB_TOKEN  }}'
-        github_pat: '${{ secrets.GH_PAT }}'
-        source_folder: updir
+         author_name: SunEngine GitHub Action Script
+         author_email: github-action@sunengine.site
+         cwd: "SunEngineBuild"
+         message: "Build auto commit"
+         path: "updir"
+         pattern: "*"
+         force: true
+      env:
+         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
