@@ -21,10 +21,10 @@ jobs:
     - name: Make files  
       run: |
         mkdir zzz
-        echo "1234" > ./zzz/file2.txt
-        echo "4565" > ./zzz/file3.txt
-        echo "4565" > ./zzz/fww3.txt
-        echo "4565" > ./zzz/fiddle3.txt
+        echo "1234" > ./SunEngineBuild/file2.txt
+        echo "4565" > ./SunEngineBuild/file3.txt
+        echo "4565" > ./SunEngineBuild/fww3.txt
+        echo "4565" > ./SunEngineBuild/fiddle3.txt
         
     #- name: Push
     #  uses: seanmiddleditch/gha-publish-to-git@master
@@ -45,8 +45,8 @@ jobs:
          author_email: github-action@sunengine.site
          cwd: "./SunEngineBuild/"
          message: "Build auto commit"
-         path: "../zzz/"
-         pattern: "*"
+         path: "."
+         pattern: "(!.git)*"
          force: true
       env:
          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
