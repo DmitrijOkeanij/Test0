@@ -12,11 +12,11 @@ jobs:
     - name: Checkout main
       uses: actions/checkout@v2
       
-   #- name: Checkout to
-   #   uses: actions/checkout@v2
-   #   with:
-   #      repository: DmitrijOkeanij/SunEngineBuild
-   #      path: SunEngineBuild
+    - name: Checkout to
+      uses: actions/checkout@v2
+      with:
+         repository: DmitrijOkeanij/SunEngineBuild
+         path: SunEngineBuild
       
     - name: Make files  
       run: |
@@ -26,15 +26,27 @@ jobs:
         echo "4565" > ./zzz/fww3.txt
         echo "4565" > ./zzz/fiddle3.txt
         
-    - name: Push
-      uses: seanmiddleditch/gha-publish-to-git@master
-      with:
-        repository: DmitrijOkeanij/SunEngineBuild
-        branch: master
-        host: github.com  
-        github_token: '${{ secrets.GITHUB_TOKEN  }}'
-        github_pat: '${{ secrets.GH_PAT  }}'
-        source_folder: ./zzz
-        working_directory: wd1
-        #target_folder: .
+    #- name: Push
+    #  uses: seanmiddleditch/gha-publish-to-git@master
+    #  with:
+    #    repository: DmitrijOkeanij/SunEngineBuild
+    #    branch: master
+    #    host: github.com  
+    #    github_token: '${{ secrets.GITHUB_TOKEN  }}'
+    #    github_pat: '${{ secrets.GH_PAT  }}'
+    #    source_folder: ./zzz
+    #    working_directory: wd1
+    #    #target_folder: .
     
+    - name: Commit build
+      uses: EndBug/add-and-commit@v2
+      with:
+         author_name: SunEngine GitHub Action Script
+         author_email: github-action@sunengine.site
+         cwd: "./SunEngineBuild/"
+         message: "Build auto commit"
+         path: "./zzz/"
+         pattern: "*"
+         force: true
+      env:
+         GITHUB_TOKEN: ${{ secrets.GH_PAT }}
