@@ -45,7 +45,7 @@ jobs:
          author_email: github-action@sunengine.site
          cwd: "./SunEngineBuild/"
          message: "Build auto commit"
-         path: "./zzz/"
+         path: "../zzz/"
          pattern: "*"
          force: true
       env:
