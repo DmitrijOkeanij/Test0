@@ -40,7 +40,7 @@ jobs:
     #    #target_folder: .
     
     - name: Commit build
-      uses: DmitrijOkeanij/add-and-commit@v3
+      uses: DmitrijOkeanij/add-and-commit@v3.0.1
       with:
          author_name: SunEngine GitHub Action Script
          author_email: github-action@sunengine.site
