@@ -11,8 +11,8 @@ jobs:
     
     - name: Checkout main
       uses: actions/checkout@v2
-      with:
-         path: test1
+    #  with:
+    #     path: test1
         
     #- name: Checkout to
     #  uses: actions/checkout@v2
