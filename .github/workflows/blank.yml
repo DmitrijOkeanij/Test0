@@ -39,15 +39,22 @@ jobs:
     #    working_directory: wd1
     #    #target_folder: .
     
-    - name: Commit build
-      uses: DmitrijOkeanij/add-and-commit@master
-      with:
-         author_name: SunEngine GitHub Action Script
-         author_email: github-action@sunengine.site
-         cwd: "./SunEngineBuild/"
-         message: "Build auto commit"
-         path: "."
-         pattern: "*"
-         force: true
+    #- name: Commit build
+    #  uses: DmitrijOkeanij/add-and-commit@master
+    #  with:
+    #     author_name: SunEngine GitHub Action Script
+    #     author_email: github-action@sunengine.site
+    #     cwd: "./SunEngineBuild/"
+    #     message: "Build auto commit"
+    #     path: "."
+    #     pattern: "*"
+    #     force: true
+    #  env:
+    #     GITHUB_TOKEN: ${{ secrets.T1 }}
+        
+    - name: Deploy
+      uses: s0/git-publish-subdir-action@master
       env:
-         GITHUB_TOKEN: ${{ secrets.T1 }}
+        REPO: git@github.com:DmitrijOkeanij/SunEngineBuild.git
+        BRANCH: master
+        FOLDER: .
