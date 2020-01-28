@@ -20,13 +20,13 @@ jobs:
       
     - name: Make files  
       run: |
-        mkdir zzz
-        echo "1111" > ./zzz/testiiia.txt
-        echo "1234" > ./zzz/file2.txt
-        echo "4565" > ./file5.txt
-        echo "4565" > ./fww6.txt
-        echo "4565" > ./fiddle7.txt
-        cd zzz
+        rm -rf *
+        #echo "1111" > ./zzz/testiiia.txt
+        #echo "1234" > ./zzz/file2.txt
+        echo "4565" > ./1.txt
+        echo "4565" > ./2.txt
+        echo "4565" > ./3.txt
+        #cd zzz
         #echo ".git/" > ./SunEngineBuild/.gitignore
         
     #- name: Push
