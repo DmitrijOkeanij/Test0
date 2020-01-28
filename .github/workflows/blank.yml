@@ -21,11 +21,11 @@ jobs:
     - name: Make files  
       run: |
         mkdir zzz
-        echo "1234" > ./SunEngineBuild/file2.txt
-        echo "4565" > ./SunEngineBuild/file3.txt
-        echo "4565" > ./SunEngineBuild/fww3.txt
-        echo "4565" > ./SunEngineBuild/fiddle3.txt
-        echo ".git/" > ./SunEngineBuild/.gitignore
+        echo "1234" > ./SunEngineBuild/file4.txt
+        echo "4565" > ./SunEngineBuild/file5.txt
+        echo "4565" > ./SunEngineBuild/fww6.txt
+        echo "4565" > ./SunEngineBuild/fiddle7.txt
+        #echo ".git/" > ./SunEngineBuild/.gitignore
         
     #- name: Push
     #  uses: seanmiddleditch/gha-publish-to-git@master
@@ -39,15 +39,25 @@ jobs:
     #    working_directory: wd1
     #    #target_folder: .
     
-    - name: Commit build
-      uses: DmitrijOkeanij/add-and-commit@v2
+    #- name: Commit build
+    #  uses: DmitrijOkeanij/add-and-commit@v2
+    #  with:
+    #     author_name: SunEngine GitHub Action Script
+    #     author_email: github-action@sunengine.site
+    #     cwd: "./SunEngineBuild/"
+    #     message: "Build auto commit"
+    #     path: "."
+    #     pattern: "*"
+    #     force: true
+    #  env:
+    #     GITHUB_TOKEN: ${{ secrets.GH_PAT }}
+     
+    - name: Commit files
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git commit -m "Add changes" -a
+    - name: Push changes
+      uses: ad-m/github-push-action@master
       with:
-         author_name: SunEngine GitHub Action Script
-         author_email: github-action@sunengine.site
-         cwd: "./SunEngineBuild/"
-         message: "Build auto commit"
-         path: "."
-         pattern: "*"
-         force: true
-      env:
-         GITHUB_TOKEN: ${{ secrets.GH_PAT }}
+        github_token: ${{ secrets.GITHUB_TOKEN }}
