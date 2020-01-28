@@ -39,25 +39,15 @@ jobs:
     #    working_directory: wd1
     #    #target_folder: .
     
-    #- name: Commit build
-    #  uses: DmitrijOkeanij/add-and-commit@v2
-    #  with:
-    #     author_name: SunEngine GitHub Action Script
-    #     author_email: github-action@sunengine.site
-    #     cwd: "./SunEngineBuild/"
-    #     message: "Build auto commit"
-    #     path: "."
-    #     pattern: "*"
-    #     force: true
-    #  env:
-    #     GITHUB_TOKEN: ${{ secrets.GH_PAT }}
-     
-    - name: Commit files
-      run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        git commit -m "Add changes" -a
-    - name: Push changes
-      uses: ad-m/github-push-action@master
+    - name: Commit build
+      uses: DmitrijOkeanij/add-and-commit@v2
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+         author_name: SunEngine GitHub Action Script
+         author_email: github-action@sunengine.site
+         cwd: "./SunEngineBuild/"
+         message: "Build auto commit"
+         path: "."
+         pattern: "*"
+         force: true
+      env:
+         GITHUB_TOKEN: ${{ secrets.GH_PAT }}
